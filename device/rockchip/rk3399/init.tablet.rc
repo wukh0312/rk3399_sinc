@@ -1,0 +1,31 @@
+on post-fs-data
+
+    #CABC
+    chown root system /sys/class/graphics/fb0/cabc
+    chmod 0664 /sys/class/graphics/fb0/cabc
+
+on init
+    # Load persistent dm-verity state
+    verity_load_state
+
+on verity-logging
+    exec u:r:slideshow:s0 -- /sbin/slideshow warning/verity_red_1 warning/verity_red_2
+
+on boot
+
+    # update cpusets feature nodes for rk3399 tablet
+    write /dev/cpuset/foreground/cpus 0-5
+    write /dev/cpuset/foreground/boost/cpus 4-5
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-5
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/target_loads "65 1008000:70 1200000:75 1416000:80 1608000:90"
+    ioprio rt 4
+
+service lan_bridge_on /system/bin/sh /system/bin/lan_bridge_on.sh
+	seclabel u:r:lan_bridge_on:s0
+	oneshot
+	disabled
+
+on property:persist.net.ethernet.mode=bridge
+	start lan_bridge_on

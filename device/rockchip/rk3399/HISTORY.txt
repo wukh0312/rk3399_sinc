@@ -1,0 +1,8 @@
+2019-5-29
+rk3399_all.mk   3g dongle使能
+#for 3G/4G modem dongle support
+#add time 5-29
+BOARD_HAVE_DONGLE := true
+#add time 6-3 
+/dev/block/platform/fe330000.sdhci/by-name/system         /system             ext4      rw,noatime,nodiratime,noauto_da_alloc      
+挂载system为可读写的

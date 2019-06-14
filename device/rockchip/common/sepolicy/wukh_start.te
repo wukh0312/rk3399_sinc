@@ -1,0 +1,16 @@
+type wukh_start, domain;
+type wukh_start_exec, exec_type, file_type;
+
+#permissive wukh_start;
+#init_daemon_domain(wukh_start)
+
+allow wukh_start init:unix_stream_socket connectto;
+allow wukh_start net_data_file:file { read getattr open };
+allow wukh_start property_socket:sock_file write;
+allow wukh_start rootfs:lnk_file getattr;
+allow wukh_start self:capability net_admin;
+allow wukh_start self:netlink_route_socket { write getattr setopt nlmsg_write read bind create };
+allow wukh_start shell_exec:file { read getattr };
+allow wukh_start system_file:file { entrypoint execute_no_trans };
+allow wukh_start system_prop:property_service set;
+allow wukh_start toolbox_exec:file { read getattr open execute execute_no_trans };

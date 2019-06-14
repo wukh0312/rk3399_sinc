@@ -1,0 +1,29 @@
+2019-5-28  
+wukh_start.te 自己添加的启动脚本，增加的权限文件 domain.te 这个文件中也要增加
+
+file_contexts  quectel代码中提示让加的  感觉没什么作用
+#add tiem 5-28 
+#Quectel RIL
+/dev/ttyUSB[0-9]       u:object_r:tty_device:s0
+/dev/ttyACM[0-9]       u:object_r:tty_device:s0
+
+rild.te  quectel代码中提示让加的  感觉没什么作用
+#add time 5-28
+# Quectel RIL
+allow rild logd:unix_stream_socket connectto;
+allow rild logdr_socket:sock_file write;
+allow rild ppp_device:chr_file { read write ioctl open };
+allow rild ppp_exec:file { read execute open execute_no_trans };
+allow rild self:capability { sys_module setgid dac_override };
+allow rild self:capability2 { syslog };
+allow rild kernel:system { syslog_read syslog_mod };
+allow rild system_data_file:dir {create write add_name};
+allow rild system_data_file:file { write create append };
+allow rild system_data_file:lnk_file create;
+allow rild tmpfs:lnk_file read;
+allow rild devpts:chr_file { write read ioctl open getattr };
+6-4 
+编译报错 怀疑是此处增加导致的 都去掉
+去掉编译就ok了
+libsepol.check_assertions: 1 neverallow failures occurred
+Error while expanding policy
