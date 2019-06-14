@@ -1,0 +1,2 @@
+neverallow { -wukh_start } { file_type -exec_type -postinstall_file }:file entrypoint;
+5-15  增加开机脚本的权限

@@ -1,0 +1,6 @@
+﻿2019-5-5: rk33plat.h  
+	boot or recovery image sha mismatch!
+	原因:
+		uboot阶段会检查boot.img和寄存器里的SHA是否一致,如果不匹配就会返回错误.
+最总发现不匹配是boot 和recovery镜像需要最后通过./mkimage.sh生成 应该会在里面做一个签名校验 所以代码中此处是没有增加的，
+此处保留只是为了 做个记录
