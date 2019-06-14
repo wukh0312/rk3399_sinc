@@ -9,6 +9,7 @@ else
 SHELL := /bin/bash
 endif
 
+#6-14 just a test for github nothing to change
 # this turns off the suffix rules built into make
 .SUFFIXES:
 
