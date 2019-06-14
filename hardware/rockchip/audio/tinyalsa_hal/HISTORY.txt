@@ -1,0 +1,8 @@
+2019-5-15     
+ ALOGD("%s ===1==device: %x",__FUNCTION__, out->device);
+	/*add time 5-15 pass to speak*/
+	/* AUDIO_DEVICE_OUT_SPEAKER                   = 0x2,*/
+    out->device = 0x2;
+     ALOGD("%s ==2===device: %x",__FUNCTION__, out->device);
+media播放默认走AUDIO_DEVICE_OUT_AUX_DIGITAL  而外设支持持AUDIO_DEVICE_OUT_SPEAKER及02
+所以此处将其强制改为2

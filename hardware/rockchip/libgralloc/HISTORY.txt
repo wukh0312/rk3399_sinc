@@ -1,0 +1,5 @@
+2019-5-29
+使用vopl通道报错ERROR not support afbdc  此处将afbc功能频闭
+#USE_AFBC_LAYER = 1
+#vopl disable afbc, add time 5-29 
+USE_AFBC_LAYER = 0

@@ -1,0 +1,5 @@
+2019-4-25
+½â¾ö±àÒë±¨´í
+#add time 4/25/2019
+#LOCAL_JAVA_LIBRARIES := $(apache_http_java_libs)
+LOCAL_JAVA_LIBRARIES := $(apache_http_java_libs) okhttp bouncycastle framework

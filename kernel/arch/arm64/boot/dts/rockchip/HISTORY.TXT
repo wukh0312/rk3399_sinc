@@ -1,0 +1,6 @@
+﻿2019-4-29： rk3399-android.dts  波特率修改  1500000---->115200
+2019-4-30:  rk3399-sapphire.dts  修改pmic硬件配置，将rk808修改为rk818
+2019-4-30 16-48:  rk3399-sapphire-excavator-edp.dts 蜂鸣器gpio和backlight gpio冲突 暂时屏蔽
+2019-5-8    rk3399-sapphire.dts   修改网络相关
+2019-5-29   rk3399-sapphire-excavator-edp.dts  修改显示vopb---vopl
+2019-5-30 rk3399.dts 增加对串口dma的配置

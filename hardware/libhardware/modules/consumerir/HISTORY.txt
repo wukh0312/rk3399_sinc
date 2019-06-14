@@ -1,0 +1,3 @@
+6-5
+不编译consumerir模块
+如果编译了会导致zygote进程起不来
